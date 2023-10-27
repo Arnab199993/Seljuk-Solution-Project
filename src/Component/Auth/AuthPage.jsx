@@ -11,7 +11,7 @@ const AuthPage = () => {
           <button className="w-[199px] h-[53px]  text-2xl font-medium transition-all ease-in-out delay-150 shadow bg-gradient-to-r from-cyan-300 via-indigo-500 to-pink-500 text-white rounded ml-[7rem] hover:shadow-[0_0px_40px_#6495ED]">
             BOOK NOW
           </button>
-          <div className="h-[664px] w-[486px] border mt-[4rem] rounded-3xl bg-white">
+          <div className="h-[680px] w-[486px] border mt-[4rem] rounded-3xl bg-white">
             <div className="px-8 py-6">
               <h3 className="text-3xl font-medium text-[rgb(0,0,0,0.8)]">
                 Registration Form
@@ -71,11 +71,33 @@ const AuthPage = () => {
                       <input
                         className=" border border-black  px-4 py-2 w-full rounded-[5px] mt-1 absolute"
                         type="text"
-                        placeholder="Password"
+                        placeholder="Confirm Password"
                       />
                       <span className="absolute mt-[1.1rem] ml-[24rem] text-gray-400 text-lg">
                         <FaRegEye />
                       </span>
+                    </div>
+
+                    <button className=" mt-[4rem] w-full p-2 rounded-md bg-[rgb(216,0,39)] text-white text-lg transition-all ease-in-out delay-150 hover:bg-[rgb(216,0,39,0.6)] ">
+                      Iniciar sesión
+                    </button>
+                    <div className="mt-4 text-[#D80027] ">
+                      <p className="text-lg text-center font-semibold leading-5 underline underline-offset-2">
+                        olvide mi contraseña
+                      </p>
+                    </div>
+                    <div className="flex w-full mt-3">
+                      <p className="w-[14rem] border border-[rgb(0,0,0,0.1)] h-0 mt-[14px]"></p>
+                      <p className="text-base px-1">o</p>
+                      <p className="w-[14rem] border border-[rgb(0,0,0,0.1)] h-0 mt-[14px]"></p>
+                    </div>
+                    <div className="flex justify-center items-center text-md text-gray-600 font-medium">
+                      <p>¿Aún no tienes cuenta? </p>
+                    </div>
+                    <div className="mt-1 text-[#D80027] ">
+                      <p className="text-md text-center font-semibold leading-5 underline underline-offset-2">
+                        Crea una aquí
+                      </p>
                     </div>
                   </div>
                 </form>
