@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Vector from "../../../public/Vector.png";
 import Cards from "./Cards";
 const BlogPage = () => {
   return (
     <>
       <div className="max-w-[1340px] m-auto mb-4 mt-10">
-        <div className="h-[770px] bg-white">
+        <div className="h-[900px] bg-white">
           <div className="w-full text-center pt-4">
             <h1 className="text-6xl font-bold text-[rgb(0,0,0,0.8)]">Blog</h1>
             <div className="flex justify-center items-center">

@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Comment from "../../../public/Comment.png";
 import ThumbsUp from "../../../public/ThumbsUp.png";
 import Share from "../../../public/Share.png";
+import { GoShareAndroid } from "react-icons/go";
+import { GrShare } from "react-icons/gr";
+
 const Texts = () => {
+  const [hoverShare, setHoverShare] = useState(false);
+
+  const handleHover = () => {
+    setHoverShare((prev) => !prev);
+  };
+  const handleLeave = () => {
+    setHoverShare(false);
+  };
+
   return (
     <>
-      <div className="w-[328px] h-[249px] m-auto mt-4">
+      <div className="w-[328px] h-[249px] m-auto mt-4 ">
         <div className=" border-b-2 pb-2">
-          <h2 className="font-bold text-lg">Title of blog post</h2>
+          <div className="flex justify-between">
+            <h2 className="font-bold text-lg">Title of blog post</h2>
+          </div>
           <p className="text-[rgb(0,0,0,0.5)] font-medium">
             Etiam volutpat sem vitae erat consectetur tincidunt. Pellentesque
             mattis purus sed odio vehicula, vitae maximus nulla venenatis. Duis
@@ -39,9 +53,19 @@ const Texts = () => {
             </div>
           </div>
           <div className="mt-2 ">
-            <button className="flex border-2 border-[rgb(0,0,0,0.8)] w-[130px] transition-all ease-in-out delay-150   py-1  justify-center items-center rounded-md hover:bg-[rgb(0,0,0,0.8)] hover:text-[white] hover:border-transparent ">
+            <button
+              onMouseEnter={handleHover}
+              onMouseLeave={handleLeave}
+              className="flex border-2 border-[rgb(0,0,0,0.8)] w-[130px] transition-all ease-in-out delay-150   py-1  justify-center items-center rounded-md hover:bg-[rgb(0,0,0,0.8)] hover:text-[white] hover:border-transparent"
+            >
               <p>Compartir</p>
-              <img src={Share} />
+              {hoverShare ? (
+                <span className="ml-1 text-gray-600 text-xl">
+                  <GoShareAndroid />
+                </span>
+              ) : (
+                <img src={Share} />
+              )}
             </button>
           </div>
         </div>

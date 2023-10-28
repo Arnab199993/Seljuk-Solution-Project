@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaRegEye } from "react-icons/fa";
 const AuthPage = () => {
+  const defaultState = {
+    Email: "",
+    UserName: "",
+    Password: "",
+    ConfirmPassword: "",
+  };
+  const [authData, setAuthData] = useState(defaultState);
+  const handleSubmit = (event) => {
+    setAuthData({ ...authData, [event.target.name]: event.target.value });
+  };
+  const handleClick = (e) => {
+    e.preventDefault();
+    const passRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    const EmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
+    console.log("ssssssssssss", passRegex.test(authData.Password));
+    if (
+      authData.Email === "" ||
+      authData.UserName === "" ||
+      authData.Password === "" ||
+      authData.ConfirmPassword === "" ||
+      !passRegex.test(authData.Password) ||
+      !EmailRegex.test(authData.Email)
+    ) {
+      alert("Invalid Submission");
+    } else {
+      alert("Successfully Submitted");
+    }
+  };
+
   return (
     <>
       <div className="w-[1240px] p-4 m-auto">
@@ -31,9 +60,12 @@ const AuthPage = () => {
                   </label>
                   <br></br>
                   <input
+                    onChange={handleSubmit}
                     className=" border border-black  px-4 py-2 w-full rounded-[5px] mt-1"
                     type="text"
                     placeholder="Email"
+                    name="Email"
+                    value={authData.Email}
                   />
                   <div className="mt-4">
                     <label className="text-[rgb(0,0,0,0.6)] font-medium">
@@ -41,6 +73,9 @@ const AuthPage = () => {
                     </label>
                     <br></br>
                     <input
+                      onChange={handleSubmit}
+                      name="UserName"
+                      value={authData.UserName}
                       className=" border border-black t px-4 py-2 w-full rounded-[5px] mt-1"
                       type="text"
                       placeholder="Username"
@@ -53,6 +88,9 @@ const AuthPage = () => {
                     <br></br>
                     <div className="relative">
                       <input
+                        onChange={handleSubmit}
+                        name="Password"
+                        value={authData.Password}
                         className=" border border-black  px-4 py-2 w-full rounded-[5px] mt-1 absolute"
                         type="text"
                         placeholder="Password"
@@ -69,6 +107,9 @@ const AuthPage = () => {
                     <br></br>
                     <div className="relative ">
                       <input
+                        onChange={handleSubmit}
+                        name="ConfirmPassword"
+                        value={authData.ConfirmPassword}
                         className=" border border-black  px-4 py-2 w-full rounded-[5px] mt-1 absolute"
                         type="text"
                         placeholder="Confirm Password"
@@ -78,7 +119,10 @@ const AuthPage = () => {
                       </span>
                     </div>
 
-                    <button className=" mt-[4rem] w-full p-2 rounded-md bg-[rgb(216,0,39)] text-white text-lg transition-all ease-in-out delay-150 hover:bg-[rgb(216,0,39,0.6)] ">
+                    <button
+                      onClick={handleClick}
+                      className=" mt-[4rem] w-full p-2 rounded-md bg-[rgb(216,0,39)] text-white text-lg transition-all ease-in-out delay-150 hover:bg-[rgb(216,0,39,0.6)] "
+                    >
                       Iniciar sesión
                     </button>
                     <div className="mt-4 text-[#D80027] ">
