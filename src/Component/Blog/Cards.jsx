@@ -7,7 +7,7 @@ import FillStar from "../../../public/FillStar.png";
 import EmptyStar from "../../../public/EmptyStar.png";
 import Texts from "./Texts";
 import { GrShare } from "react-icons/gr";
-import "./Cards.css";
+
 const Cards = () => {
   const [cardHover, setCardHover] = useState(false);
   const [cardHoverSecond, setCardHoverSecond] = useState(false);

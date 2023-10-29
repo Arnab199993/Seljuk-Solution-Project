@@ -4,7 +4,7 @@ import ThumbsUp from "../../../public/ThumbsUp.png";
 import Share from "../../../public/Share.png";
 import { GoShareAndroid } from "react-icons/go";
 import { GrShare } from "react-icons/gr";
-import "./Texts.css";
+
 const Texts = () => {
   const [hoverShare, setHoverShare] = useState(false);
 

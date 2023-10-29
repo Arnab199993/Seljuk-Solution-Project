@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Vector from "../../../public/Vector.png";
 import Cards from "./Cards";
-import "./BlogPage.css";
+
 const BlogPage = () => {
   return (
     <>
