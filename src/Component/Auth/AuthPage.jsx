@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { FaRegEye } from "react-icons/fa";
+import "./AuthPage.css";
 const AuthPage = () => {
+  const [passVal, setPassVal] = useState("");
   const defaultState = {
     Email: "",
     UserName: "",
     Password: "",
     ConfirmPassword: "",
   };
+  const passRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
   const [authData, setAuthData] = useState(defaultState);
   const handleSubmit = (event) => {
     setAuthData({ ...authData, [event.target.name]: event.target.value });
@@ -16,13 +19,19 @@ const AuthPage = () => {
     const passRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     const EmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
     console.log("ssssssssssss", passRegex.test(authData.Password));
+    if (authData.Password !== authData.ConfirmPassword) {
+      setPassVal("Password and confirm password should be the same");
+    } else {
+      setPassVal("");
+    }
     if (
       authData.Email === "" ||
       authData.UserName === "" ||
       authData.Password === "" ||
       authData.ConfirmPassword === "" ||
       !passRegex.test(authData.Password) ||
-      !EmailRegex.test(authData.Email)
+      !EmailRegex.test(authData.Email) ||
+      authData.Password !== authData.ConfirmPassword
     ) {
       alert("Invalid Submission");
     } else {
@@ -92,7 +101,7 @@ const AuthPage = () => {
                         name="Password"
                         value={authData.Password}
                         className=" border border-black  px-4 py-2 w-full rounded-[5px] mt-1 absolute"
-                        type="text"
+                        type="password"
                         placeholder="Password"
                       />
                       <span className="absolute mt-[1.1rem] ml-[24rem] text-gray-400 text-lg">
@@ -100,7 +109,19 @@ const AuthPage = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="mt-[4rem]">
+                  <div className="mt-[2rem]">
+                    <div className=" py-3 text-red-600">
+                      {!passRegex.test(authData.Password) &&
+                      authData.Password.length > 0 ? (
+                        <p>
+                          Password must contain atleast 1 capital letter 1 small
+                          letter 1 number and 1 special character and must have
+                          8 characters
+                        </p>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                     <label className="text-[rgb(0,0,0,0.6)] font-medium">
                       Confirm Password
                     </label>
@@ -111,17 +132,19 @@ const AuthPage = () => {
                         name="ConfirmPassword"
                         value={authData.ConfirmPassword}
                         className=" border border-black  px-4 py-2 w-full rounded-[5px] mt-1 absolute"
-                        type="text"
+                        type="password"
                         placeholder="Confirm Password"
                       />
                       <span className="absolute mt-[1.1rem] ml-[24rem] text-gray-400 text-lg">
                         <FaRegEye />
                       </span>
+                      <div className="absolute mt-[2rem] py-3 text-red-600">
+                        {passVal}
+                      </div>
                     </div>
-
                     <button
                       onClick={handleClick}
-                      className=" mt-[4rem] w-full p-2 rounded-md bg-[rgb(216,0,39)] text-white text-lg transition-all ease-in-out delay-150 hover:bg-[rgb(216,0,39,0.6)] "
+                      className=" mt-[4.5rem] w-full p-2 rounded-md bg-[rgb(216,0,39)] text-white text-lg transition-all ease-in-out delay-150 hover:bg-[rgb(216,0,39,0.6)] "
                     >
                       Iniciar sesión
                     </button>

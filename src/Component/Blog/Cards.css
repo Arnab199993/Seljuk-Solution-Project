@@ -1,0 +1,116 @@
+.max-width-1180 {
+  max-width: 1180px;
+}
+
+.margin-top-10 {
+  margin-top: 2.5rem;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.transition-all {
+  transition: all;
+}
+
+.ease-out {
+  transition-timing-function: ease-out;
+}
+
+.delay-150ms {
+  transition-delay: 150ms;
+}
+
+.border-width-1 {
+  border-width: 1px;
+}
+
+.box-shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.object-fit-contain {
+  object-fit: contain;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.hover-height-650 {
+  height: 650px;
+}
+
+.hover-scale {
+  transform: scale(1.25);
+}
+
+.margin-left-4 {
+  margin-left: 1rem;
+}
+
+.margin-top-14-5rem {
+  margin-top: 9.375rem;
+}
+
+.margin-left-4-5rem {
+  margin-left: 1.125rem;
+}
+
+.font-size-lg {
+  font-size: 1.125rem;
+}
+
+.color-rgb-0-7 {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.font-size-sm {
+  font-size: 0.875rem;
+}
+
+.color-rgb-0-6 {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.color-orange-400 {
+  color: #ffa500;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.height-50 {
+  height: 50%;
+}
+
+.background-color-d80027 {
+  background-color: #d80027;
+}
+
+.height-5rem {
+  height: 5rem;
+}
+
+.width-5rem {
+  width: 5rem;
+}
+
+.padding-4 {
+  padding: 1rem;
+}
+
+.margin-right-4 {
+  margin-right: 1rem;
+}
+
+.border-radius-lg {
+  border-radius: 0.5rem;
+}
