@@ -3,6 +3,7 @@ import { FaRegEye } from "react-icons/fa";
 import "./AuthPage.css";
 const AuthPage = () => {
   const [passVal, setPassVal] = useState("");
+  const [emailVal, setEmailVal] = useState("");
   const defaultState = {
     Email: "",
     UserName: "",
@@ -24,6 +25,11 @@ const AuthPage = () => {
     } else {
       setPassVal("");
     }
+    if (!EmailRegex.test(authData.Password) && authData.Email.length > 0) {
+      setEmailVal("Invalid Email");
+    } else {
+      setEmailVal("");
+    }
     if (
       authData.Email === "" ||
       authData.UserName === "" ||
@@ -42,14 +48,14 @@ const AuthPage = () => {
   return (
     <>
       <div className="w-[1240px] p-4 m-auto">
-        <div className="mt-[49px] ml-[97px]">
+        <div className="mt-[49px] ml-[97px] ">
           <button className="border border-[#6495ED] w-[199px] h-[53px]  text-2xl font-medium bg-[#6495ED] text-white rounded transition-all ease-in-out delay-150 shadow hover:shadow-[0_0px_40px_#6495ED]">
             BOOK NOW
           </button>
           <button className="w-[199px] h-[53px]  text-2xl font-medium transition-all ease-in-out delay-150 shadow bg-gradient-to-r from-cyan-300 via-indigo-500 to-pink-500 text-white rounded ml-[7rem] hover:shadow-[0_0px_40px_#6495ED]">
             BOOK NOW
           </button>
-          <div className="h-[680px] w-[486px] border mt-[4rem] rounded-3xl bg-white">
+          <div className="h-[750px] w-[486px] border mt-[4rem] rounded-3xl bg-white">
             <div className="px-8 py-6">
               <h3 className="text-3xl font-medium text-[rgb(0,0,0,0.8)]">
                 Registration Form
@@ -76,6 +82,7 @@ const AuthPage = () => {
                     name="Email"
                     value={authData.Email}
                   />
+                  <div className=" text-red-600">{emailVal}</div>
                   <div className="mt-4">
                     <label className="text-[rgb(0,0,0,0.6)] font-medium">
                       Username
